@@ -19,34 +19,43 @@
 <!--		PolicyNo, BankName, AccountNo, AccountType-->
 		<form action="/createAccount" method="post">
 			<div class="form-group">
-				<label for="mobile">Full Name :</label> <input type="text"
-					class="form-control" id="mobile"
-					placeholder="Enter Full Name in Capital" name="name"
+				<label for="policyNo">PolicyNo :</label> <input type="text"
+					class="form-control" id="policyNo"
+					placeholder="Enter Policy Number" name="policyNo"
 					required="required">
 			</div>
 			<div class="form-group">
-				<label for="mobile">Mobile :</label> <input type="text"
-					class="form-control" id="mobile" placeholder="Enter Mobile"
-					name="mobile" required="required">
+				<label for="bankName">BankName :</label> <input type="text"
+					class="form-control" id="bankName" placeholder="Enter Bank Name"
+					name="bankName" required="required">
 			</div>
 
 			<div class="form-group">
-				<label for="email">Email :</label> <input type="email"
-					class="form-control" id="email" placeholder="Enter email"
-					name="email" required="required">
+				<label for="accountNo">AccountNo :</label> <input type="number"
+					class="form-control" id="accountNo" placeholder="Enter Account Number"
+					name="accountNo" required="required">
 			</div>
 
 			<div class="form-group">
-				<label for="pwd">Password :</label> <input type="password"
-					class="form-control" id="pwd" placeholder="Enter password"
-					name="pswd" required="required">
+				<label for="accountType">Account Type :</label>
+				<select name="accountType">
+					<option value="SavingsAccounts">Savings Accounts</option>
+					<option value="CurrentAccounts">Current Accounts</option>
+					<option value="InvestmentAccounts">Investment Accounts</option>
+		     	</select>
 			</div>
-			<div class="form-group form-check">
-				<label class="form-check-label"> <input
-					class="form-check-input" type="checkbox" name="remember"> i
-					accepted
-				</label>
-			</div>
+
+<!--			<div class="form-group">-->
+<!--				<label for="mobile">AccountType :</label> <input type="text"-->
+<!--					class="form-control" id="pwd" placeholder="Enter password"-->
+<!--					name="pswd" required="required">-->
+<!--			</div>-->
+<!--			<div class="form-group form-check">-->
+<!--				<label class="form-check-label"> <input-->
+<!--					class="form-check-input" type="checkbox" name="remember"> i-->
+<!--					accepted-->
+<!--				</label>-->
+<!--			</div>-->
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>

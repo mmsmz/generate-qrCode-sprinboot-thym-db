@@ -10,8 +10,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class CreateAccountRequestDTO {
-	String name;
-	String mobile;
-	String email;
-	String password;
+
+//	PolicyNo, BankName, AccountNo, AccountType
+	String PolicyNo; //fullname
+	String BankName; // mobile
+	String AccountNo; //email
+	String AccountType; //password
 }

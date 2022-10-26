@@ -16,13 +16,19 @@ import java.nio.file.Path;
 public class PaytmQRCodeServiceImpl implements  PaytmQRCodeService{
 
      public String writeQR(CreateAccountRequestDTO request) throws WriterException, IOException {
-        String qcodePath = "src/main/resources/static/images/" + request.getName() + "-QRCode.png";
+        String qcodePath = "src/main/resources/static/images/" + request.getAccountNo() + "-QRCode.png";
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        BitMatrix bitMatrix = qrCodeWriter.encode(request.getName() + "\n" + request.getEmail() + "\n"
-                + request.getMobile() + "\n" + request.getPassword(), BarcodeFormat.QR_CODE, 350, 350);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(request.getPolicyNo()).append("\n");
+        stringBuilder.append(request.getBankName()).append("\n");;
+        stringBuilder.append(request.getAccountNo()).append("\n");;
+        stringBuilder.append(request.getAccountType()).append("\n");;
+
+        BitMatrix bitMatrix = qrCodeWriter.encode(stringBuilder.toString(), BarcodeFormat.QR_CODE, 350, 350);
         Path path = FileSystems.getDefault().getPath(qcodePath);
         MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
-        return "/images/" + request.getName() + "-QRCode.png";
+        return "/images/" + request.getAccountNo() + "-QRCode.png";
     }
 
 }
