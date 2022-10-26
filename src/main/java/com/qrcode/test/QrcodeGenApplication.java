@@ -1,4 +1,4 @@
-package com.javatechie.test;
+package com.qrcode.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

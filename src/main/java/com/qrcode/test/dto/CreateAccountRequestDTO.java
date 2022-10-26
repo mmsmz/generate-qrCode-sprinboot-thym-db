@@ -1,4 +1,4 @@
-package com.javatechie.test;
+package com.qrcode.test.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class CreateAccountRequest {
+public class CreateAccountRequestDTO {
 	String name;
 	String mobile;
 	String email;
