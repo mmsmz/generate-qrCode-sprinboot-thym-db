@@ -1,15 +1,14 @@
 package com.qrcode.test.controller;
 
-import java.io.IOException;
-
-import com.javatechie.test.service.PaytmQRCodeService;
+import com.google.zxing.WriterException;
+import com.qrcode.test.service.PaytmQRCodeService;
 import com.qrcode.test.dto.CreateAccountRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.google.zxing.WriterException;
+import java.io.IOException;
 
 @Controller
 public class PaytmQRCodeController {
