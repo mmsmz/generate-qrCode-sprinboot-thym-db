@@ -13,22 +13,27 @@ import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 @Service
-public class PaytmQRCodeServiceImpl implements  PaytmQRCodeService{
+public class PaytmQRCodeServiceImpl implements PaytmQRCodeService {
 
-     public String writeQR(CreateAccountRequestDTO request) throws WriterException, IOException {
-        String qcodePath = "src/main/webapp/" + request.getAccountNo() + "-QRCode.png";
+    private final static String IMGFORMAT = "-QRCode.png";
+    private final static String IMGBASEPATH = "src/main/webapp/";
+    private final static String PNG = "PNG";
+
+    public String writeQR(CreateAccountRequestDTO request) throws WriterException, IOException {
+        String accountNo = request.getAccountNo();
+        String qcodePath = IMGBASEPATH + accountNo + IMGFORMAT;
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
 
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(request.getPolicyNo()).append("\n");
-        stringBuilder.append(request.getBankName()).append("\n");;
-        stringBuilder.append(request.getAccountNo()).append("\n");;
-        stringBuilder.append(request.getAccountType()).append("\n");;
+        stringBuilder.append(request.getPolicyNo()).append(System.lineSeparator());
+        stringBuilder.append(request.getBankName()).append("\n");
+        stringBuilder.append(accountNo).append("\n");
+        stringBuilder.append(request.getAccountType()).append("\n");
 
         BitMatrix bitMatrix = qrCodeWriter.encode(stringBuilder.toString(), BarcodeFormat.QR_CODE, 350, 350);
         Path path = FileSystems.getDefault().getPath(qcodePath);
-        MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
-        return "/" + request.getAccountNo() + "-QRCode.png";
+        MatrixToImageWriter.writeToPath(bitMatrix, PNG, path);
+        return "/" + accountNo + IMGFORMAT;
     }
 
 }
