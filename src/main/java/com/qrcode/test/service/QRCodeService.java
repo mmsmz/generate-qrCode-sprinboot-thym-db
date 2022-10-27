@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service
-public interface PaytmQRCodeService {
+public interface QRCodeService {
     String writeQR(CreateAccountRequestDTO request) throws WriterException, IOException;
 }
